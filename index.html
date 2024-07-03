@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text-convertor</title>
+</head>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .app-container{
+            height: 100vh;
+            width: 100vw;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .img-bg{
+            height: 250px;
+            width: 350px;
+            mix-blend-mode: screen ;
+            margin: 5px;
+        }
+        .text-convertor{
+            height: 100px;
+            width: 270px;
+            border-radius: 15px 0px 15px 0px;
+            margin: 10px;
+            margin-top: -30px;
+            font-size: 18px;
+            padding: 5px;
+        }
+        .output-result{
+            font-size: 20px;
+            color: aliceblue; 
+            margin: 5px;
+        }
+        .btn1 {
+            background-color: #2B86C5;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+            transition: 0.5s ease-in;
+
+        }
+        .btn1:hover{
+            background-color: #003366;
+        }
+    </style>
+<body>
+    <div class="app-container">
+        <img src="./img3.jpg" alt="background" class="img-bg">
+        <h1>Text Forge</h1>
+        <input type="text" class="text-convertor" id="texts">
+        <p class="output-result" id="op"></p>
+        <div class="btn-grp">
+        <button id="btn-up" class="btn1" onclick="words('Uppercase')">
+            Upper-case
+        </button>
+        <button id="btn-low" class="btn1" onclick="words('lower')">
+            Lower-case
+        </button>
+        <button id="btn-count" class="btn1" onclick="words('char')">
+            Char-count
+        </button>
+        <button class="btn1" id="btn-char" onclick="words('word')">
+            Word-Count
+        </button>
+        </div>
+    </div>
+    <script>
+         let txt = document.getElementById(`texts`);
+         let result= document.getElementById(`op`);
+        function words(action) {
+            switch (action) {
+                case 'Uppercase':
+                result.innerText=txt.value.toUpperCase();
+                    break;
+                case 'lower':
+                result.innerText=txt.value.toLowerCase();
+                    break;
+                case 'char':
+                result.innerText=`Total Character is `+txt.value.length;
+                    break;
+                default:
+                result.innerText= "Total Word Count is "+txt.value.split(" ").length;
+                    break;
+            }
+            // if (action == 'Uppercase') {
+            //     result.innerText=txt.value.toUpperCase();
+            // }
+            // else if( action== 'lower'){
+            //     result.innerText=txt.value.toLowerCase();
+            // }
+            // else if (action== 'char') {
+            //     result.innerText=`Total Character is `+txt.value.length;
+            // }
+            // else if (action== 'word') {
+            //     result.innerText= "Total Word Count is "+txt.value.split(" ").length;
+            // }
+        }
+        
+         //method for basic 
+        // function Uppercase() {
+       
+        //     result.innerText=txt.value.toUpperCase();
+        // }
+        // function lower() {
+            
+        //      result.innerText=txt.value.toLowerCase();
+        // }
+        // function char() {
+        //      result.innerText=`Total Character is `+txt.value.length;
+        // }
+        // function word() {
+           
+        //      result.innerText= "Total Word Count is "+txt.value.split(" ").length;
+        // }
+
+    </script>
+
+</body>
+
+</html>
